@@ -1,0 +1,23 @@
+﻿<Window x:Class="RVVD.Project_Commander.Milestone_Window"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+        xmlns:local="clr-namespace:RVVD.Project_Commander"
+        xmlns:lex="http://wpflocalizeextension.codeplex.com"
+        lex:LocalizeDictionary.DesignCulture="en"
+        lex:ResxLocalizationProvider.DefaultAssembly="ReVVed"
+        lex:ResxLocalizationProvider.DefaultDictionary="Language"
+        mc:Ignorable="d" 
+        d:DesignHeight="200" d:DesignWidth="300" Title="{lex:Loc Key=PC_AddMile_Title}" 
+        Topmost="True" SizeToContent="WidthAndHeight" WindowStartupLocation="CenterOwner" 
+        WindowStyle="ToolWindow" ResizeMode="NoResize">
+    <Grid>
+        <Label x:Name="label" Content="{lex:Loc Key=PC_colHead_Date}" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
+        <DatePicker x:Name="datePicker" HorizontalAlignment="Left" Margin="10,36,10,0" VerticalAlignment="Top" Width="274"/>
+        <Label x:Name="label_Copy" Content="{lex:Loc Key=PC_lbl_Milestone}" HorizontalAlignment="Left" Margin="10,70,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="textBoxMilestone" HorizontalAlignment="Left" Height="23" Margin="10,96,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="274"/>
+        <Button x:Name="OkButton" Content="{lex:Loc}" HorizontalAlignment="Left" Margin="39,129,0,10" VerticalAlignment="Top" Width="75" Click="OkButton_Click"/>
+        <Button x:Name="CancelButton" Content="{lex:Loc}" HorizontalAlignment="Left" Margin="162,129,0,10" VerticalAlignment="Top" Width="75" Click="CancelButton_Click"/>
+    </Grid>
+</Window>

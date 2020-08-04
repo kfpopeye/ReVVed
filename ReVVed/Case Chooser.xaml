@@ -1,0 +1,24 @@
+﻿<Window x:Class="RVVD.Case_Chooser"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+        xmlns:local="clr-namespace:RVVD"
+        xmlns:lex="http://wpflocalizeextension.codeplex.com"
+        lex:LocalizeDictionary.DesignCulture="en"
+        lex:ResxLocalizationProvider.DefaultAssembly="ReVVed"
+        lex:ResxLocalizationProvider.DefaultDictionary="Language"
+        mc:Ignorable="d" Title="{lex:Loc Key=CC_Title}" Topmost="True" SizeToContent="WidthAndHeight" 
+        ResizeMode="NoResize" WindowStartupLocation="CenterOwner" WindowStyle="ToolWindow" Height="209.217" Width="148.566">
+    <StackPanel Orientation="Vertical" Margin="5">
+        <RadioButton Tag="0" x:Name="MT_cbi_sentanceCase" Content="{lex:Loc}" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Checked="RadioButton_Checked"/>
+        <RadioButton Tag="1" x:Name="MT_cbi_UpperCase" Content="{lex:Loc}" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" IsChecked="True" Checked="RadioButton_Checked"/>
+        <RadioButton Tag="2" x:Name="MT_cbi_lowerCase" Content="{lex:Loc}" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Checked="RadioButton_Checked"/>
+        <RadioButton Tag="3" x:Name="MT_cbi_toggleCase" Content="{lex:Loc}" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Checked="RadioButton_Checked"/>
+        <RadioButton Tag="4" x:Name="MT_cbi_titleCase" Content="{lex:Loc}" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Checked="RadioButton_Checked"/>
+        <StackPanel Orientation="Horizontal">
+            <Button x:Name="OkButton" Content="{lex:Loc}" IsDefault="True" Width="50" Margin="10,10,0,0" Click="Button_Click" />
+            <Button x:Name="CancelButton" Content="{lex:Loc}" IsCancel="True" Width="50" Margin="10,10,0,0" Click="Button_Click_1" />
+        </StackPanel>
+    </StackPanel>
+</Window>

@@ -1,0 +1,268 @@
+﻿<Window x:Class="RVVD.Component_Commander2.CoCo_Main_Window"
+            xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+            xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+            xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+            xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+            xmlns:local="clr-namespace:RVVD.Component_Commander2"
+	        xmlns:FCC="clr-namespace:pkhCommon.WPF.FilterControlComponent;assembly=pkhCommon"
+            xmlns:scm="clr-namespace:System.ComponentModel;assembly=WindowsBase"
+            xmlns:lex="http://wpflocalizeextension.codeplex.com"
+            lex:LocalizeDictionary.DesignCulture="en"
+            lex:ResxLocalizationProvider.DefaultAssembly="ReVVed"
+            lex:ResxLocalizationProvider.DefaultDictionary="Language"
+            mc:Ignorable="d" 
+            Closing="Window_Closing" Loaded="Window_Loaded"
+            d:DesignHeight="550" d:DesignWidth="800" WindowStartupLocation="CenterOwner" 
+            Title="{lex:Loc Key=CoCo_Title}" WindowStyle="ToolWindow"
+            MinWidth="760" MinHeight="450">
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/pkhCommon;component/FilterControlComponent/FilterControl.generic.xaml" />
+                <ResourceDictionary>
+                    <BitmapImage x:Key="Red Heart" UriSource="pack://application:,,,/ReVVed;component/Resources/red_heart.png"/>
+                    <BitmapImage x:Key="Empty Heart" UriSource="pack://application:,,,/ReVVed;component/Resources/empty_heart.png"/>
+
+                    <ObjectDataProvider x:Key="dataSetProvider" MethodName="GetDataSet" ObjectType="{x:Type local:DataSetCreator}"/>
+                    <ObjectDataProvider x:Key="detailProvider" MethodName="GetDetailItems" ObjectType="{x:Type local:DataSetCreator}"/>
+
+                    <local:ListSorterConverter x:Key="sorter"/>
+
+                    <DataTemplate x:Key="SymbolTemplate">
+                        <TextBlock Text="{Binding SymbolName}"/>
+                    </DataTemplate>
+
+                    <HierarchicalDataTemplate x:Key="FamilyTemplate" ItemsSource="{Binding Fam2Sym, Converter={StaticResource sorter}, ConverterParameter='SymbolName'}" 
+                                              ItemTemplate="{StaticResource SymbolTemplate}">
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="{Binding FamilyName}" />
+                            <TextBlock Margin="5,0,0,0">
+                                <Run Text="("/>
+                                <Run Text=
+                                     "{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type TreeViewItem}, AncestorLevel=1}, 
+                                    Path=DataContext.Fam2Sym.Count, TargetNullValue='null', FallbackValue='Error', Mode=OneWay}"/>
+                                <Run Text=")"/>
+                            </TextBlock>
+                        </StackPanel>
+                    </HierarchicalDataTemplate>
+
+                    <HierarchicalDataTemplate x:Key="Categorytemplate" ItemsSource="{Binding Cat2Fam, Converter={StaticResource sorter}, ConverterParameter='FamilyName'}" 
+                                              ItemTemplate="{StaticResource FamilyTemplate}">
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="{Binding LocalizedName}" />
+                            <TextBlock Margin="5,0,0,0">
+                                    <Run Text="("/>
+                                    <Run Text=
+                                         "{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type TreeViewItem}, AncestorLevel=1}, 
+                                        Path=DataContext.Cat2Fam.Count, TargetNullValue='null', FallbackValue='Error', Mode=OneWay}"/>
+                                    <Run Text=")"/>
+                            </TextBlock>
+                        </StackPanel>
+                    </HierarchicalDataTemplate>
+
+                    <DataTemplate x:Key="FavTemplate">
+                        <StackPanel Orientation="Horizontal">
+                            <Button x:Name="DeleteFav" Margin="0,0,5,0" Content="X" ToolTip="Delete from favorites list." Foreground="#FFDE1111" 
+                                    FontWeight="Bold" Click="DeleteFav_Click" />
+                            <TextBlock Text="{Binding Name}"/>
+                        </StackPanel>
+                    </DataTemplate>
+
+                    <HierarchicalDataTemplate x:Key="FavoritesTemplate" ItemsSource="{Binding Categories_Favorites}" 
+                                              ItemTemplate="{StaticResource FavTemplate}">
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="{Binding Category}" />
+                        </StackPanel>
+                    </HierarchicalDataTemplate>
+
+                    <!-- This style is used for buttons, to remove the WPF default 'animated' mouse over effect -->
+                    <Style x:Key="FavButtons" TargetType="Button">
+                        <Setter Property="OverridesDefaultStyle" Value="True"/>
+                        <Setter Property="Margin" Value="5"/>
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="Button">
+                                    <Border Name="border" BorderThickness="0" 
+                                            Background="{TemplateBinding Background}">
+                                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                                    </Border>
+                                    <ControlTemplate.Triggers>
+                                        <Trigger Property="IsMouseOver" Value="True">
+                                            <Setter Property="Background" TargetName="border">
+                                                <Setter.Value>
+                                                    <ImageBrush ImageSource="/ReVVed;component/Resources/red_heart.png" />
+                                                </Setter.Value>
+                                            </Setter>
+                                        </Trigger>
+                                    </ControlTemplate.Triggers>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </ResourceDictionary>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition MinWidth="230" Width="230"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <DockPanel x:Name="FamilyPanel" Grid.Column="0" Margin="2" LastChildFill="True">
+            <DockPanel.Resources>
+                <BitmapImage x:Key="CCImage" UriSource="pack://application:,,,/ReVVed;component/Resources/CCinitalimage.jpg"/>
+
+                <CollectionViewSource x:Key="ParameterViewSource" Source="{Binding ParameterCollection}">
+                    <CollectionViewSource.GroupDescriptions>
+                        <PropertyGroupDescription PropertyName="ParameterGroup" />
+                    </CollectionViewSource.GroupDescriptions>
+                </CollectionViewSource>
+            </DockPanel.Resources>
+
+            <StackPanel Orientation="Horizontal" DockPanel.Dock="Top">
+                <Border BorderBrush="Black" BorderThickness="1">
+                    <Canvas Width="128" Height="128">
+                        <Image Width="128" Height="128">
+                            <Image.Style>
+                                <Style TargetType="{x:Type Image}">
+                                    <Setter Property="Source" Value="{Binding PreviewImage}" />
+                                    <Style.Triggers>
+                                        <DataTrigger Binding="{Binding PreviewImage}" Value="{x:Null}">
+                                            <Setter Property="Source" Value="{StaticResource CCImage}" />
+                                        </DataTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </Image.Style>
+                        </Image>
+                        <Button x:Name="Add2FavButton" Canvas.Right="5" Canvas.Top="5" ToolTip="{lex:Loc Key=CoCo_but_Fav_tooltip}" Click="Add2FavButton_Click"
+                                IsEnabled="{Binding HasFilePath}" Width="16" Height="16" Style="{StaticResource FavButtons}">
+                            <Button.Background>
+                                <ImageBrush ImageSource="/ReVVed;component/Resources/empty_heart.png"/>
+                            </Button.Background>
+                        </Button>
+                    </Canvas>
+                </Border>
+                <StackPanel Orientation="Vertical" Margin="10,0,0,0" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <Button x:Name="FolderButton" Content="{lex:Loc Key=CoCo_But_Folder}" ToolTip="{lex:Loc Key=CoCo_But_Folder_tooltip}" IsEnabled="{Binding HasFilePath}" Margin="0,2" Click="FolderButton_Click"/>
+                    <Button x:Name="ReloadButton" Content="{lex:Loc Key=CoCo_But_Reload}" ToolTip="{lex:Loc Key=CoCo_But_Reload_tooltip}" Margin="0,2" IsEnabled="{Binding HasFilePath}" Click="ReloadButton_Click" />
+                    <Button x:Name="EditButton" Content="{lex:Loc Key=CoCo_But_Edit}" ToolTip="{lex:Loc Key=CoCo_But_Edit_tooltip}" Margin="0,2" IsEnabled="{Binding HasFilePath}" Click="EditButton_Click"/>
+                    <Button x:Name="SelectButton" Content="{lex:Loc Key=CoCo_But_Select}" ToolTip="{lex:Loc Key=CoCo_But_Select_tooltip}" Margin="0,2" Height="35" 
+                            Foreground="#FFF0E509" FontWeight="Bold" FontSize="14" Click="SelectButton_Click" IsDefault="True">
+                        <Button.Background>
+                            <RadialGradientBrush>
+                                <GradientStop Color="#FF890A0A" Offset="1"/>
+                                <GradientStop Color="#FFE40E0E"/>
+                            </RadialGradientBrush>
+                        </Button.Background>
+                        <Button.Style>
+                            <Style TargetType="{x:Type Button}">
+                                <Setter Property="IsEnabled" Value="True" />
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding CurrentSymbolId}" Value="-1">
+                                        <Setter Property="IsEnabled" Value="False" />
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Button.Style>
+                    </Button>
+                    <CheckBox x:Name="PreviewCB" Content="{lex:Loc Key=CoCo_CB_Preview}" IsChecked="True"/>
+                </StackPanel>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" DockPanel.Dock="Bottom">
+                <Button x:Name="LoadButton" Content="Load" Width="75" Click="LoadButton_Click" />
+                <Button x:Name="CloseButton" IsCancel="True" Content="{lex:Loc Key=CloseButton}" Width="75" Click="CloseButton_Click" />
+                <Button Content="{lex:Loc Key=HelpButton}" Width="75" Click="Help_Button_Click" />
+            </StackPanel>
+
+            <ListView x:Name="ParameterList" MinHeight="150" Margin="0,2" BorderThickness="1" BorderBrush="Black"
+                      ItemsSource="{Binding Source={StaticResource ParameterViewSource}}" ScrollViewer.VerticalScrollBarVisibility="Visible">
+                <ListView.GroupStyle>
+                    <GroupStyle>
+                        <GroupStyle.HeaderTemplate>
+                            <DataTemplate>
+                                <TextBlock FontWeight="Bold" Text="{Binding Path=Name}"/>
+                            </DataTemplate>
+                        </GroupStyle.HeaderTemplate>
+                    </GroupStyle>
+                </ListView.GroupStyle>
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="{Binding ParameterName}" Margin="0,0,5,0"/>
+                            <TextBlock Text="{Binding ParameterValue}" FontStyle="Italic"/>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </DockPanel>
+
+        <Border Grid.Column="1" BorderBrush="Black" BorderThickness="2,0,0,0">
+            <Canvas>                
+                <TabControl x:Name="tabscontrol" Width="{Binding Parent.ActualWidth, RelativeSource={RelativeSource Self}}" Height="{Binding Parent.ActualHeight, Mode=OneWay, RelativeSource={RelativeSource Self}}">
+                    <TabItem Header="{lex:Loc Key=CoCo_Tab_MoCo}">
+                    <DockPanel Margin="2" LastChildFill="True">
+                        <StackPanel x:Name="ButtonPanel" Orientation="Horizontal" DockPanel.Dock="Top" Margin="0,0,0,2">
+                            <Button Width="100" Content="Arch" Tag="{x:Static local:Discipline.Arch}" Click="Button_Click" Margin="0,0,2,0"/>
+                            <Button Width="100" Content="Struct" Tag="{x:Static local:Discipline.Struct}" Click="Button_Click" Margin="0,0,2,0" />
+                            <Button Width="100" Content="MEP" Tag="{x:Static local:Discipline.MEP}" Click="Button_Click" Margin="0,0,2,0" />
+                        </StackPanel>
+                        <TreeView x:Name="ComponentTree" DataContext="{StaticResource dataSetProvider}" ItemsSource="{Binding RvtCat}"
+                              ItemTemplate="{StaticResource Categorytemplate}" SelectedItemChanged="CompTree_SelectedItemChanged">
+                            <TreeView.ItemContainerStyle>
+                                <Style TargetType="TreeViewItem">
+                                    <EventSetter Event="MouseDoubleClick" Handler="CompTreeViewItem_MouseDoubleClick" />
+                                    <Setter Property="Visibility" Value="Collapsed"/>
+                                    <Style.Triggers>
+                                        <DataTrigger Binding="{Binding RelativeSource={x:Static RelativeSource.Self}, Path=Header.Show }" Value="True">
+                                            <Setter Property="Visibility" Value="Visible"/>
+                                        </DataTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </TreeView.ItemContainerStyle>
+                        </TreeView>
+                    </DockPanel>
+                </TabItem>
+
+                    <TabItem Header="{lex:Loc Key=CoCo_Tab_DetCo}">
+                    <TreeView x:Name="DetailTree" Margin="2" DataContext="{StaticResource detailProvider}" 
+                              ItemsSource="{Binding Cat2Fam, Converter={StaticResource sorter}, ConverterParameter='FamilyName'}"
+                              ItemTemplate="{StaticResource FamilyTemplate}" SelectedItemChanged="DetailTree_SelectedItemChanged">
+                        <TreeView.ItemContainerStyle>
+                            <Style TargetType="TreeViewItem">
+                                <EventSetter Event="MouseDoubleClick" Handler="CompTreeViewItem_MouseDoubleClick" />
+                                <Setter Property="Visibility" Value="Collapsed"/>
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding RelativeSource={x:Static RelativeSource.Self}, Path=Header.Show }" Value="True">
+                                        <Setter Property="Visibility" Value="Visible"/>
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </TreeView.ItemContainerStyle>
+                    </TreeView>
+                </TabItem>
+                
+                <TabItem>
+                    <TabItem.Header>
+                        <StackPanel Orientation="Horizontal" IsHitTestVisible="False">
+                            <Border BorderThickness="1" BorderBrush="Black" Margin="0,0,2,0">
+                                <Image Source="{StaticResource Red Heart}"/>
+                            </Border>
+                                <TextBlock Text="{lex:Loc Key=CoCo_Tab_Favs}"/>
+                        </StackPanel>
+                    </TabItem.Header>
+                    <TreeView x:Name="FavoritesTree" ItemTemplate="{StaticResource FavoritesTemplate}" 
+                              SelectedItemChanged="FavoritesTree_SelectedItemChanged" MouseDoubleClick="FavoritesTree_MouseDoubleClick">                        
+                    </TreeView>
+                </TabItem>
+                </TabControl>
+
+                <FCC:FilterControl x:Name="filterControl" Width="200" Height="24" Margin="2,0" Header="{lex:Loc Key=CoCo_Filter_Text}" 
+                                   Filter="FilterControl_Filter" ClearFilter="FilterControl_ClearFilter" 
+                                   Canvas.Right="5" Canvas.Top="1" Panel.ZIndex="1"/>
+            </Canvas>
+        </Border>
+    </Grid>
+</Window>

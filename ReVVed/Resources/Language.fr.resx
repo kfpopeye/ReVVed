@@ -1,0 +1,668 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="MT_cb_AddPeriods" xml:space="preserve">
+    <value>Ajouter les points</value>
+  </data>
+  <data name="MT_cb_AddReturns" xml:space="preserve">
+    <value>Ajouter nouvelle lignes</value>
+  </data>
+  <data name="MT_cb_PreserveReturns" xml:space="preserve">
+    <value>Préserver nouvelle lignes</value>
+  </data>
+  <data name="MT_Title" xml:space="preserve">
+    <value>Fusionner le texte</value>
+    <comment>Merge Text Window Title</comment>
+  </data>
+  <data name="CancelButton" xml:space="preserve">
+    <value>Annuler</value>
+  </data>
+  <data name="HelpButton" xml:space="preserve">
+    <value>Aide</value>
+  </data>
+  <data name="OkButton" xml:space="preserve">
+    <value>OK</value>
+  </data>
+  <data name="MT_cbi_lowerCase" xml:space="preserve">
+    <value>minuscules</value>
+  </data>
+  <data name="MT_cbi_none" xml:space="preserve">
+    <value>-Aucun-</value>
+  </data>
+  <data name="MT_cbi_sentanceCase" xml:space="preserve">
+    <value>Cas approprié.</value>
+  </data>
+  <data name="MT_cbi_titleCase" xml:space="preserve">
+    <value>Casse du Titre</value>
+  </data>
+  <data name="MT_cbi_toggleCase" xml:space="preserve">
+    <value>cHANGER lA cASSE</value>
+  </data>
+  <data name="MT_cbi_UpperCase" xml:space="preserve">
+    <value>MAJUSCULES</value>
+  </data>
+  <data name="MT_bt_RemoveNote" xml:space="preserve">
+    <value>Supprimer cette note</value>
+  </data>
+  <data name="MT_bt_ViewXML" xml:space="preserve">
+    <value>Voir XML</value>
+  </data>
+  <data name="CC_CommandName" xml:space="preserve">
+    <value>Changer de cas</value>
+  </data>
+  <data name="CC_Title" xml:space="preserve">
+    <value>Choisis une option</value>
+    <comment>Window title</comment>
+  </data>
+  <data name="ErrorDialog_Command1" xml:space="preserve">
+    <value>Envoyer un rapport de bug.</value>
+  </data>
+  <data name="ErrorDialog_MainCont" xml:space="preserve">
+    <value>Quelque chose d'inattendu s'est produit et la commande ne peut pas se terminer. Vous trouverez plus d'informations ci-dessous.</value>
+    <comment>OLD=Veuillez utiliser le lien ci-dessous pour envoyer un rapport de bogue au développeur. Vous pourrez voir le rapport de bogue avant de l'envoyer.</comment>
+  </data>
+  <data name="ErrorDialog_MainInst" xml:space="preserve">
+    <value>a rencontré une erreur et ne peut pas terminer.</value>
+    <comment>this has a space at the front</comment>
+  </data>
+  <data name="ErrorDialog_Title" xml:space="preserve">
+    <value>Erreur inattendue</value>
+  </data>
+  <data name="MT_DIA001" xml:space="preserve">
+    <value>Aucun élément n'a été sélectionné.</value>
+  </data>
+  <data name="MT_DIA002" xml:space="preserve">
+    <value>Aucune note n'a été sélectionnée.</value>
+  </data>
+  <data name="MT_Tooltip" xml:space="preserve">
+    <value>Fusionner plusieurs notes de texte en une seule note.</value>
+  </data>
+  <data name="UC_Title" xml:space="preserve">
+    <value>Majuscules</value>
+  </data>
+  <data name="CC_Tooltip" xml:space="preserve">
+    <value>Modifie la casse des éléments sélectionnés.</value>
+  </data>
+  <data name="UC_Tooltip" xml:space="preserve">
+    <value>Change la casse des éléments sélectionnés en majuscule.</value>
+  </data>
+  <data name="WL_tb_Instr" xml:space="preserve">
+    <value>Le lien Web a détecté plus d'une URL dans l'élément. Choisissez le lien que vous souhaitez ouvrir:</value>
+  </data>
+  <data name="WL_Title" xml:space="preserve">
+    <value>Lien Web</value>
+  </data>
+  <data name="WL_Tooltip" xml:space="preserve">
+    <value>Obtient l'URL d'un composant et ouvre la page Web dans un mini-navigateur.</value>
+  </data>
+  <data name="AddButton" xml:space="preserve">
+    <value>Ajouter</value>
+  </data>
+  <data name="CC_DIA001" xml:space="preserve">
+    <value>Vous devez d'abord sélectionner les éléments de texte.</value>
+  </data>
+  <data name="DeleteButton" xml:space="preserve">
+    <value>Effacer</value>
+  </data>
+  <data name="PC_AddMile_Title" xml:space="preserve">
+    <value>Ajouter un Jalon</value>
+  </data>
+  <data name="PC_colHead_Date" xml:space="preserve">
+    <value>Date</value>
+  </data>
+  <data name="PC_colHead_Desc" xml:space="preserve">
+    <value>Description</value>
+  </data>
+  <data name="PC_colHead_Event" xml:space="preserve">
+    <value>un événement</value>
+  </data>
+  <data name="PC_Doc_lbl_ProjInfo" xml:space="preserve">
+    <value>Renseignements sur le projet</value>
+  </data>
+  <data name="PC_Doc_mi_Refresh" xml:space="preserve">
+    <value>Rafraîchir</value>
+  </data>
+  <data name="PC_lbl_Comments" xml:space="preserve">
+    <value>Commentaires</value>
+  </data>
+  <data name="PC_lbl_Info" xml:space="preserve">
+    <value>Information</value>
+  </data>
+  <data name="PC_lbl_Milestone" xml:space="preserve">
+    <value>Les Jalons</value>
+  </data>
+  <data name="PC_RunText" xml:space="preserve">
+    <value>Sélectionnez un commentaire ci-dessus et il s'affichera ici.</value>
+  </data>
+  <data name="PC_tb_IssueDate" xml:space="preserve">
+    <value>Date D'émission:</value>
+  </data>
+  <data name="PC_tb_PID" xml:space="preserve">
+    <value>ID du Projet:</value>
+  </data>
+  <data name="PC_tb_Status" xml:space="preserve">
+    <value>Statut:</value>
+  </data>
+  <data name="PC_tb_UF1" xml:space="preserve">
+    <value>Champ utilisateur1:</value>
+  </data>
+  <data name="PC_tb_UF2" xml:space="preserve">
+    <value>Champ utilisateur2:</value>
+  </data>
+  <data name="PC_Title" xml:space="preserve">
+    <value>Commandant de Projet</value>
+  </data>
+  <data name="PC_DIA002_ComLink1" xml:space="preserve">
+    <value>Créez une nouvelle entrée de projet.</value>
+  </data>
+  <data name="PC_DIA002_ComLink2" xml:space="preserve">
+    <value>Sélectionnez un projet existant dans la base de données.</value>
+  </data>
+  <data name="PC_DIA002_ComLink3" xml:space="preserve">
+    <value>Annuler et quitter sans modifications.</value>
+  </data>
+  <data name="PC_DIA002_ExpCont" xml:space="preserve">
+    <value>C’est la première fois que vous exécutez Project Commander pour ce projet particulier ou bien le projet a été renommé ou renuméroté depuis votre dernière exécution de Project Commander.</value>
+  </data>
+  <data name="PC_DIA002_MainInstr" xml:space="preserve">
+    <value>Le commandant de projet n'a pas trouvé le projet: "{0}" dans la base de données XML.</value>
+  </data>
+  <data name="PC_DIA002_Title" xml:space="preserve">
+    <value>Projet non trouvé</value>
+  </data>
+  <data name="CloseButton" xml:space="preserve">
+    <value>Fermer</value>
+  </data>
+  <data name="PC_PMW_DIA001_MainInstr" xml:space="preserve">
+    <value>Cela supprimera définitivement tous les commentaires, jalons et informations stockés dans la base de données pour ce projet. Êtes-vous sûr que c'est ce que vous voulez?</value>
+  </data>
+  <data name="PC_PMW_DIA001_Title" xml:space="preserve">
+    <value>Confirmation de la suppression</value>
+  </data>
+  <data name="PC_PMW_tb_Instruction" xml:space="preserve">
+    <value>Sélectionnez le projet que vous souhaitez renommer \ renuméroter:</value>
+  </data>
+  <data name="PC_PMW_tb_Instruction2" xml:space="preserve">
+    <value>Sélectionnez les projets que vous souhaitez supprimer de la base de données.</value>
+  </data>
+  <data name="PC_PMW_Title" xml:space="preserve">
+    <value>Chef de projet</value>
+    <comment>Project Manager Window</comment>
+  </data>
+  <data name="TXT_No" xml:space="preserve">
+    <value>Non</value>
+  </data>
+  <data name="TXT_Yes" xml:space="preserve">
+    <value>Oui</value>
+  </data>
+  <data name="CoCo_Title" xml:space="preserve">
+    <value>Commandant de Composant</value>
+  </data>
+  <data name="GF_Title" xml:space="preserve">
+    <value>Inverser la Grille</value>
+  </data>
+  <data name="OF_Title" xml:space="preserve">
+    <value>Dossier Ouvert</value>
+  </data>
+  <data name="OPT_cb_Log2File" xml:space="preserve">
+    <value>Se connecter au fichier</value>
+  </data>
+  <data name="OPT_gb_LogFile" xml:space="preserve">
+    <value>Fichier Journal</value>
+  </data>
+  <data name="OPT_gb_RibButtons" xml:space="preserve">
+    <value>Boutons de Ruban</value>
+  </data>
+  <data name="OPT_lbl_LogDuration" xml:space="preserve">
+    <value>Durée de saisie du journal (0 à 365 jours)</value>
+  </data>
+  <data name="OPT_lbl_LogLevel" xml:space="preserve">
+    <value>Niveau de journal</value>
+  </data>
+  <data name="OPT_lbl_LogPath" xml:space="preserve">
+    <value>Chemin du fichier journal</value>
+  </data>
+  <data name="OPT_Title" xml:space="preserve">
+    <value>ReVVed Options</value>
+  </data>
+  <data name="P_Title" xml:space="preserve">
+    <value>Polyligne</value>
+  </data>
+  <data name="R_Title" xml:space="preserve">
+    <value>Révisionniste</value>
+  </data>
+  <data name="GF_Tooltip" xml:space="preserve">
+    <value>Inverse les points de début et de fin des lignes de la grille.</value>
+  </data>
+  <data name="HLP_Tooltip" xml:space="preserve">
+    <value>Aide pour la suite d'outils ReVVed.</value>
+  </data>
+  <data name="OPT_cb_MiniBrowser" xml:space="preserve">
+    <value>Utiliser le mini-navigateur</value>
+  </data>
+  <data name="OPT_cb_RunAtStart" xml:space="preserve">
+    <value>Courir au début</value>
+  </data>
+  <data name="OPT_cb_UserExp" xml:space="preserve">
+    <value>Contribuez à l'expérience utilisateur ReVVed</value>
+  </data>
+  <data name="OPT_DIA001_MainInstr" xml:space="preserve">
+    <value>Vous n'êtes pas autorisé à écrire dans ce répertoire.</value>
+  </data>
+  <data name="OPT_DIA001_Title" xml:space="preserve">
+    <value>Erreur de répertoire</value>
+  </data>
+  <data name="OPT_tb_MoreInfo" xml:space="preserve">
+    <value>Plus d'information.</value>
+  </data>
+  <data name="OPT_Tooltip" xml:space="preserve">
+    <value>Options de configuration pour la suite d'outils ReVVed.</value>
+  </data>
+  <data name="PC_PMW_Tooltip" xml:space="preserve">
+    <value>Vous permet de supprimer des projets obsolètes de la base de données Project Commander.</value>
+  </data>
+  <data name="P_Tooltip" xml:space="preserve">
+    <value>Définit la longueur totale de plusieurs lignes jointes.</value>
+  </data>
+  <data name="R_Tooltip" xml:space="preserve">
+    <value>Ajoute des révisions à plusieurs feuilles.</value>
+  </data>
+  <data name="SaveButton" xml:space="preserve">
+    <value>Enregistrer</value>
+  </data>
+  <data name="About_Title" xml:space="preserve">
+    <value>À propos de ReVVed</value>
+  </data>
+  <data name="About_Tooltip" xml:space="preserve">
+    <value>Informations produit sur la suite d'outils ReVVed.</value>
+  </data>
+  <data name="CoCo_Tooltip" xml:space="preserve">
+    <value>Une interface améliorée pour le tri et la recherche des composants chargés dans le projet.</value>
+  </data>
+  <data name="EA_DIA001_MainCont" xml:space="preserve">
+    <value>La version {0} est disponible à l'adresse &lt;a href="http://www.pkhlineworks.ca"&gt; www.pkhlineworks.ca &lt;/a&gt;.</value>
+  </data>
+  <data name="EA_DIA001_MainInstr" xml:space="preserve">
+    <value>Une version plus récente de ReVVed est disponible.</value>
+  </data>
+  <data name="EA_DIA001_Title" xml:space="preserve">
+    <value>Mise à jour disponible</value>
+  </data>
+  <data name="EA_DIA002_Comm1" xml:space="preserve">
+    <value>Désactive la journalisation.</value>
+  </data>
+  <data name="EA_DIA002_Comm2" xml:space="preserve">
+    <value>Ignorer et continuer.</value>
+  </data>
+  <data name="EA_DIA002_MainCont" xml:space="preserve">
+    <value>Souhaitez-vous désactiver la journalisation ou simplement ignorer cette erreur et continuer?</value>
+  </data>
+  <data name="EA_DIA002_MainInstr" xml:space="preserve">
+    <value>ReVVed n'a pas pu accéder au fichier journal: {0}. Il est probablement verrouillé par un autre processus.</value>
+  </data>
+  <data name="EA_DIA002_Title" xml:space="preserve">
+    <value>Erreur de journalisation</value>
+  </data>
+  <data name="EA_DIA003_Comm1" xml:space="preserve">
+    <value>Oui, j'aimerais contribuer.</value>
+  </data>
+  <data name="EA_DIA003_Comm2" xml:space="preserve">
+    <value>Non, je ne veux pas aider à améliorer ReVVed.</value>
+  </data>
+  <data name="EA_DIA003_Footer" xml:space="preserve">
+    <value>&lt;a href="http://www.pkhlineworks.ca/analyticsinformation.html"&gt;Cliquez ici pour plus d'informations&lt;/a&gt;</value>
+  </data>
+  <data name="EA_DIA003_MainCont" xml:space="preserve">
+    <value>Cela se produirait automatiquement sans que vous ayez besoin de quoi que ce soit et nécessite une connexion Internet. Si vous souhaitez vous désinscrire à tout moment, vous pouvez le faire dans le menu Options.</value>
+  </data>
+  <data name="EA_DIA003_MainInstr" xml:space="preserve">
+    <value>pkh Lineworks souhaite collecter des informations sur votre utilisation de ReVVed.</value>
+  </data>
+  <data name="EA_DIA003_Title" xml:space="preserve">
+    <value>Expérience utilisateur ReVVed</value>
+  </data>
+  <data name="EA_RButt_HideDock" xml:space="preserve">
+    <value>Masquer le panneau</value>
+  </data>
+  <data name="EA_RButt_HideDock_Tooltip" xml:space="preserve">
+    <value>Masque la palette dockable du Commandant de Projet</value>
+  </data>
+  <data name="EA_RButt_ShowDock" xml:space="preserve">
+    <value>Afficher le panneau</value>
+  </data>
+  <data name="EA_RButt_ShowDock_Tooltip" xml:space="preserve">
+    <value>Affiche la palette dockable du Commandant de Projet</value>
+  </data>
+  <data name="OF_Tooltip" xml:space="preserve">
+    <value>Ouvre le dossier dans lequel le projet actif ou la famille sélectionnée est enregistré.</value>
+  </data>
+  <data name="PC_DIA001_Mess" xml:space="preserve">
+    <value>Le fichier de base de données est introuvable. Avez-vous exécuté l'outil Project Commander au moins une fois?</value>
+  </data>
+  <data name="PC_DIA001_Title" xml:space="preserve">
+    <value>Fichier non trouvé.</value>
+  </data>
+  <data name="PC_Doc_Title" xml:space="preserve">
+    <value>Volet d'amarrage du commandant de projet</value>
+  </data>
+  <data name="PC_Tooltip" xml:space="preserve">
+    <value>Une petite application pour stocker des notes et des détails sur le projet actuellement actif. Celles-ci ne sont pas enregistrées dans le fichier de projet.</value>
+  </data>
+  <data name="ANALYTICS_DIA001_Comm1" xml:space="preserve">
+    <value>Désactiver la collecte pour cette session uniquement.</value>
+  </data>
+  <data name="ANALYTICS_DIA001_Comm2" xml:space="preserve">
+    <value>Éteignez en permanence.</value>
+  </data>
+  <data name="ANALYTICS_DIA001_Footer" xml:space="preserve">
+    <value>Vous pouvez l'activer à tout moment dans le menu Options.</value>
+  </data>
+  <data name="ANALYTICS_DIA001_MainCont" xml:space="preserve">
+    <value>Une erreur s'est produite lors de la collecte des informations d'utilisation.</value>
+  </data>
+  <data name="ANALYTICS_DIA001_MainInstr" xml:space="preserve">
+    <value>Une erreur s'est produite lors de la tentative d'envoi d'informations d'utilisation. Cela pourrait être un problème temporaire, mais veuillez soumettre le rapport de bogue qui suivra. Veuillez sélectionner une option ci-dessous:</value>
+  </data>
+  <data name="ANALYTICS_DIA001_Title" xml:space="preserve">
+    <value>Expérience utilisateur reVVed</value>
+  </data>
+  <data name="ANALYTICS_language" xml:space="preserve">
+    <value>fr</value>
+  </data>
+  <data name="DeselectAllButton" xml:space="preserve">
+    <value>Tout déselectionner</value>
+  </data>
+  <data name="GF_DIA001_MainCont" xml:space="preserve">
+    <value>Des lignes de quadrillage ou multi-segments ont été sélectionnées. Ceux-ci ne peuvent pas être retournés et ont été ignorés.</value>
+  </data>
+  <data name="GF_DIA001_MainInstr" xml:space="preserve">
+    <value>{0} lignes de grille inversées.</value>
+  </data>
+  <data name="HELP_FILE" xml:space="preserve">
+    <value>\revved-help-fr.chm</value>
+  </data>
+  <data name="OF_Error1" xml:space="preserve">
+    <value>Un répertoire approprié n'a pas pu être trouvé. Une des raisons possibles est qu’il s’agit d’un nouveau projet qui n’a pas encore été enregistré.</value>
+  </data>
+  <data name="OF_Error2" xml:space="preserve">
+    <value>L'instance d'importation que vous avez sélectionnée n'est pas liée au projet.</value>
+  </data>
+  <data name="OF_Error4" xml:space="preserve">
+    <value>La famille sélectionnée était une famille sur place.</value>
+  </data>
+  <data name="OF_Error5" xml:space="preserve">
+    <value>La famille sélectionnée n'avait pas de chemin de répertoire. Une des raisons possibles est que la famille n'a pas été chargée dans le projet mais existe dans le modèle de projet.</value>
+  </data>
+  <data name="OF_Error6" xml:space="preserve">
+    <value>Les nuages de points ne sont pas pris en charge pour le moment.</value>
+  </data>
+  <data name="OF_Error7" xml:space="preserve">
+    <value>Le type d'élément sélectionné n'a pas pu être reconnu en tant que référence externe.</value>
+  </data>
+  <data name="OF_Error8" xml:space="preserve">
+    <value>Le répertoire {0} n'existe pas.</value>
+  </data>
+  <data name="OF_Error_Title" xml:space="preserve">
+    <value>Erreur</value>
+  </data>
+  <data name="R_DIA001_MainInstr" xml:space="preserve">
+    <value>Toutes les révisions ont été publiées.</value>
+  </data>
+  <data name="R_DIA001_Title" xml:space="preserve">
+    <value>Pas de données</value>
+  </data>
+  <data name="R_DIA002_MainInstr" xml:space="preserve">
+    <value>Il n'y a pas de feuilles avec lesquelles travailler.</value>
+  </data>
+  <data name="SelectAllButton" xml:space="preserve">
+    <value>Tout sélectionner</value>
+  </data>
+  <data name="P_butt_Switch" xml:space="preserve">
+    <value>Fin du commutateur</value>
+  </data>
+  <data name="P_butt_Update" xml:space="preserve">
+    <value>Longueur de mise à jour</value>
+  </data>
+  <data name="P_DIA001_MainInstr" xml:space="preserve">
+    <value>Moins de 2 lignes ont été sélectionnées.</value>
+  </data>
+  <data name="P_DIA002_MainCont" xml:space="preserve">
+    <value>Quelque chose s'est mal passé lorsque Revit a tenté de modifier la ligne selon la dimension spécifiée.</value>
+  </data>
+  <data name="P_DIA002_MainInstr" xml:space="preserve">
+    <value>La ligne n'a pas pu être créée.</value>
+  </data>
+  <data name="P_DIA003_MainCont" xml:space="preserve">
+    <value>Assurez-vous de sélectionner plusieurs lignes, les lignes sont connectées et ne forment pas une boucle fermée. Les arcs, les ellipses et les splines ne sont actuellement pas pris en charge.</value>
+  </data>
+  <data name="P_DIA003_MainInstr" xml:space="preserve">
+    <value>Un chemin n'a pas pu être trouvé.</value>
+  </data>
+  <data name="P_lbl_Dlength" xml:space="preserve">
+    <value>Longueur souhaitée:</value>
+  </data>
+  <data name="P_lbl_Plength" xml:space="preserve">
+    <value>Longueur de la polyligne:</value>
+  </data>
+  <data name="P_tb_Note" xml:space="preserve">
+    <value>Remarque:</value>
+  </data>
+  <data name="P_tb_Note2" xml:space="preserve">
+    <value>La ligne sera modifiée à partir de l'extrémité rouge pour répondre à la longueur souhaitée.</value>
+  </data>
+  <data name="CoCo_But_Folder" xml:space="preserve">
+    <value>Dossier Ouvert</value>
+  </data>
+  <data name="CoCo_But_Edit" xml:space="preserve">
+    <value>Éditer</value>
+  </data>
+  <data name="CoCo_But_Edit_tooltip" xml:space="preserve">
+    <value>Modifier la famille à partir de l'emplacement du disque dur</value>
+  </data>
+  <data name="CoCo_But_Folder_tooltip" xml:space="preserve">
+    <value>Ouvre le dossier contenant cette famille.</value>
+  </data>
+  <data name="CoCo_But_Load" xml:space="preserve">
+    <value>Charge</value>
+  </data>
+  <data name="CoCo_But_Reload" xml:space="preserve">
+    <value>Recharger</value>
+  </data>
+  <data name="CoCo_But_Reload_tooltip" xml:space="preserve">
+    <value>Recharger la famille depuis l'emplacement du disque dur</value>
+  </data>
+  <data name="CoCo_But_Select" xml:space="preserve">
+    <value>Sélectionner</value>
+  </data>
+  <data name="CoCo_But_Select_tooltip" xml:space="preserve">
+    <value>Insérez la famille sélectionnée dans le dessin</value>
+  </data>
+  <data name="CoCo_CB_Preview" xml:space="preserve">
+    <value>Aperçu</value>
+  </data>
+  <data name="CoCo_Filter_Text" xml:space="preserve">
+    <value>Nom du filtre</value>
+  </data>
+  <data name="CoCo_Tab_DetCo" xml:space="preserve">
+    <value>Composants de détail</value>
+  </data>
+  <data name="CoCo_Tab_Favs" xml:space="preserve">
+    <value>Favoris</value>
+  </data>
+  <data name="CoCo_Tab_MoCo" xml:space="preserve">
+    <value>Composants du modèle</value>
+  </data>
+  <data name="CoCo_FOD_Filter" xml:space="preserve">
+    <value>Familles Revit (*.rfa)|*.rfa</value>
+  </data>
+  <data name="CoCo_DIA001_MainCont" xml:space="preserve">
+    <value>Pas besoin de recharger la famille de:</value>
+  </data>
+  <data name="CoCo_DIA001_MainInstr" xml:space="preserve">
+    <value>La famille était identique au fichier enregistré.</value>
+  </data>
+  <data name="CoCo_DIA001_Title" xml:space="preserve">
+    <value>Chargement raté</value>
+  </data>
+  <data name="CoCo_DIA002_MainInstr" xml:space="preserve">
+    <value>Impossible de trouver le fichier à:</value>
+  </data>
+  <data name="CoCo_DIA002_Title" xml:space="preserve">
+    <value>Échec de la modification</value>
+  </data>
+  <data name="CoCo_DIA003_Title" xml:space="preserve">
+    <value>Échec du rechargement</value>
+  </data>
+  <data name="CoCo_DIA004_MainInstr" xml:space="preserve">
+    <value>Rechargé avec succès:</value>
+  </data>
+  <data name="CoCo_DIA004_Title" xml:space="preserve">
+    <value>Rechargé</value>
+  </data>
+  <data name="CoCo_DIA005_MainCont" xml:space="preserve">
+    <value>Pas besoin de recharger la famille de:</value>
+  </data>
+  <data name="CoCo_DIA005_MainInstr" xml:space="preserve">
+    <value>La famille était identique au fichier enregistré.</value>
+  </data>
+  <data name="CoCo_DIA006_MainInstr" xml:space="preserve">
+    <value>Impossible de trouver le fichier à:</value>
+  </data>
+  <data name="CoCo_DIA007_MainCont" xml:space="preserve">
+    <value>Pas besoin de charger la famille depuis:</value>
+  </data>
+  <data name="CoCo_EC_TransAct" xml:space="preserve">
+    <value>Charger la famille</value>
+  </data>
+  <data name="CoCo_Error_MainCont" xml:space="preserve">
+    <value>Certaines raisons possibles sont que ce document n'est pas actif, ou qu'il s'agit d'un document de famille et que les instances de ce symbole de famille ne peuvent pas exister dans la famille actuelle, ou ce symbole de famille n'a pas de commande pour créer une instance, ou la commande pour créer une instance est désactivée en vue active.</value>
+  </data>
+  <data name="CoCo_Error_Title" xml:space="preserve">
+    <value>Placer l'erreur familiale</value>
+  </data>
+  <data name="CoCo_DIA008_MainCont" xml:space="preserve">
+    <value>Souhaitez-vous supprimer cette entrée de vos favoris enregistrés?</value>
+  </data>
+  <data name="CoCo_DIA008_MainInstr" xml:space="preserve">
+    <value>Impossible de trouver le fichier de famille pour le favori suivant:</value>
+  </data>
+  <data name="CoCo_DIA008_Title" xml:space="preserve">
+    <value>Dossier manquant</value>
+  </data>
+</root>

@@ -1,0 +1,139 @@
+﻿<Window xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:local="clr-namespace:RVVD.Merge_Text"
+        xmlns:pkh="clr-namespace:pkhCommon.WPF;assembly=pkhCommon"
+        xmlns:lex="http://wpflocalizeextension.codeplex.com"
+        lex:LocalizeDictionary.DesignCulture="en"
+        lex:ResxLocalizationProvider.DefaultAssembly="ReVVed"
+        lex:ResxLocalizationProvider.DefaultDictionary="Language"
+        x:Class="RVVD.Merge_Text.Merge_Text_Window"
+        MinWidth="650" MinHeight="600" Width="650" Height="600" WindowStyle="ToolWindow" Title="{lex:Loc Key=MT_Title}" 
+        WindowStartupLocation="CenterOwner" Loaded="Window_Loaded">
+
+    <Window.Resources>
+        <ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+            <FlowDocument x:Key="blankDoc">
+                <Paragraph>Data bind failed or no document available. </Paragraph>
+            </FlowDocument>
+        </ResourceDictionary>
+    </Window.Resources>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*" MinHeight="150"/>
+            <RowDefinition Height="1*" MinHeight="100"/>
+        </Grid.RowDefinitions>
+        <DockPanel Margin="0,0,0,15">
+            <StackPanel>
+                <Button x:Name="UpButton" HorizontalAlignment="Left" Margin="2,18,2,0" Click="UpButton_Click">
+                    <Image Height="24" Width="24" Source="/ReVVed;component/Resources/arrow-up.png"/>
+                </Button>
+                <Button x:Name="DownButton" HorizontalAlignment="Left" Margin="2,20,2,0" Click="DownButton_Click">
+                    <Image Height="24" Width="24" Source="/ReVVed;component/Resources/arrow-up.png" RenderTransformOrigin="0.5,0.5">
+                        <Image.RenderTransform>
+                            <TransformGroup>
+                                <ScaleTransform/>
+                                <SkewTransform/>
+                                <RotateTransform Angle="180"/>
+                                <TranslateTransform/>
+                            </TransformGroup>
+                        </Image.RenderTransform>
+                    </Image>
+                </Button>
+            </StackPanel>
+            <ListBox x:Name="noteListBox" DockPanel.Dock="Bottom" SelectionChanged="noteList_SelectionChanged" Margin="0,0,0,2" 
+                     BorderThickness="1,1,0,1" KeyUp="noteList_KeyUp" HorizontalContentAlignment="Stretch" ScrollViewer.CanContentScroll="False">
+                <!--Uncomment the following lines for design time data only, will crash app otherwise-->
+                <!--<ListBox.ItemsSource>
+                    <x:Array Type="{x:Type local:Element}">
+                        <local:Element _theDoc="{StaticResource blankDoc}" _theText="Test Text 1" _theFont="Arial" _theID="555555"/>
+                        <local:Element _theDoc="{StaticResource blankDoc}" _theText="Test Text 2" _theFont="Century Gothic" _theID="666666"/>
+                        <local:Element _theDoc="{StaticResource blankDoc}" _theText="Test Text 3" _theFont="Century Gothic" _theID="777777"/>
+                    </x:Array>
+                </ListBox.ItemsSource>-->
+                <ListBox.ItemContainerStyle>
+                    <Style TargetType="ListBoxItem">
+                        <Setter Property="BorderBrush" Value="Black" />
+                        <Setter Property="BorderThickness" Value="1"/>
+                        <Setter Property="Margin" Value="0,0,0,2" />
+                        <Setter Property="Background" Value="#FFF4FFFD" />
+                        <Style.Triggers>
+                            <Trigger Property="IsSelected" Value="True" >
+                                <Setter Property="Background" Value="#FFF4FFFD" />
+                                <Setter Property="Foreground" Value="Black" />
+                                <Setter Property="BorderBrush" Value="Red" />
+                                <Setter Property="BorderThickness" Value="2"/>
+                            </Trigger>
+                        </Style.Triggers>
+                        <Style.Resources>
+                            <SolidColorBrush x:Key="{x:Static SystemColors.HighlightBrushKey}" Color="#FFF4FFFD"/>
+                            <SolidColorBrush x:Key="{x:Static SystemColors.ControlBrushKey}" Color="#FFF4FFFD" />
+                        </Style.Resources>
+                    </Style>
+                </ListBox.ItemContainerStyle>
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="20"/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+                            <Button ToolTip="{lex:Loc Key=MT_bt_RemoveNote}" Width="14" Height="14" VerticalAlignment="Top" Foreground="Red" 
+                                    Content="X" Tag="{Binding _theID}" FontSize="10" Padding="0" FontWeight="Bold" 
+                                    Click="RemoveButton_Click" Margin="0,5,3,0"/>
+                            <FlowDocumentScrollViewer IsHitTestVisible="False" Grid.Column="1" VerticalScrollBarVisibility="Disabled"
+                                                      Loaded="FlowDocumentScrollViewer_Loaded" Unloaded="FlowDocumentScrollViewer_Unloaded"/>
+                            <!--Document="{Binding _theDoc}"-->
+                        </Grid>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+        </DockPanel>
+        <GridSplitter x:Name="splitter" HorizontalAlignment="Stretch" Height="15" Margin="0" VerticalAlignment="Bottom" 
+                      ResizeDirection="Rows" Cursor="SizeNS" BorderThickness="0,1" BorderBrush="Black">
+        </GridSplitter>
+        <Grid Margin="0" Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <StackPanel Orientation="Horizontal" Grid.Row="0">
+                <ComboBox x:Name="cb_Case" HorizontalAlignment="Left" Margin="5,2" VerticalAlignment="Top" Width="120" SelectedIndex="0" 
+                          SelectionChanged="cbCase_Click">
+                    <ComboBoxItem x:Name="MT_cbi_none" Content="{lex:Loc}" Tag="none"/>
+                    <ComboBoxItem x:Name="MT_cbi_UpperCase" Content="{lex:Loc}" Tag="upper"/>
+                    <ComboBoxItem x:Name="MT_cbi_lowerCase" Content="{lex:Loc}" Tag="lower"/>
+                    <ComboBoxItem x:Name="MT_cbi_titleCase" Content="{lex:Loc}" Tag="title"/>
+                    <ComboBoxItem x:Name="MT_cbi_toggleCase" Content="{lex:Loc}" Tag="toggle"/>
+                    <ComboBoxItem x:Name="MT_cbi_sentanceCase" Content="{lex:Loc}" Tag="sentance"/>
+                </ComboBox>
+                <CheckBox x:Name="MT_cb_PreserveReturns" Content="{lex:Loc}" HorizontalAlignment="Left" Margin="20,0,0,0" VerticalAlignment="Center" Click="cb_Click"/>
+                <CheckBox x:Name="MT_cb_AddReturns" Content="{lex:Loc}" VerticalAlignment="Center" Margin="5,0,0,0" Click="cb_Click"/>
+                <CheckBox x:Name="MT_cb_AddPeriods" Content="{lex:Loc}" VerticalAlignment="Center" Margin="5,0,0,0" Click="cb_Click"/>
+            </StackPanel>
+
+            <RichTextBox x:Name="preview_window" Margin="0,2" Grid.Row="2" BorderBrush="Black" BorderThickness="0,1" SpellCheck.IsEnabled="False" 
+                              VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto" AllowDrop="False" AcceptsReturn="False" 
+                              IsUndoEnabled="False" AcceptsTab="False" IsReadOnly="True"/>
+
+            <Grid Grid.Row="3">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="1*"/>
+                </Grid.ColumnDefinitions>
+                <StackPanel Orientation="Horizontal" Grid.Column="0">
+                    <Button x:Name="HelpButton" Content="{lex:Loc}" HorizontalAlignment="Left" Margin="5,0,0,2" VerticalAlignment="Center" Width="75" Click="HelpButton_Click"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Grid.Column="2" HorizontalAlignment="Right">
+                    <Button x:Name="MT_bt_ViewXML" Content="{lex:Loc}" Margin="5,0" VerticalAlignment="Center" Width="75" Click="ViewXML_Click"/>
+                    <Button x:Name="CancelButton" Content="{lex:Loc}" Margin="5,0" VerticalAlignment="Center" Width="75" IsCancel="True" Click="CancelButton_Click"/>
+                    <Button x:Name="OkButton" Content="{lex:Loc}" Margin="5,0" VerticalAlignment="Center" Width="75" Click="OkButton_Click"/>
+                </StackPanel>
+            </Grid>
+        </Grid>
+    </Grid>
+</Window>

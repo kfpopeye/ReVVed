@@ -1,0 +1,123 @@
+﻿<Page   x:Class="Project_Commander.Docking_Pane"        
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"    
+        xmlns:xctk="clr-namespace:Xceed.Wpf.Toolkit;assembly=Xceed.Wpf.Toolkit"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:lex="http://wpflocalizeextension.codeplex.com"
+        lex:LocalizeDictionary.DesignCulture="en"
+        lex:ResxLocalizationProvider.DefaultAssembly="ReVVed"
+        lex:ResxLocalizationProvider.DefaultDictionary="Language"
+        xmlns:src="clr-namespace:Project_Commander"
+        x:Name="dockPage" Title="{lex:Loc Key=PC_Title}"
+        Width="300" Height="454" Background="White" Loaded="dockPage_Loaded">
+    <Page.Resources>
+        <XmlDataProvider x:Key="xmlsource" Source=""/>
+        <src:ProjectNameConverter x:Key="p_nameConverter"/>
+        <Style TargetType="ListViewItem">
+            <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+        </Style>
+        <Style x:Key="DatagridHeaderStyle" TargetType="{x:Type DataGridColumnHeader}">
+            <Setter Property="Background" Value="Transparent" />
+            <Setter Property="BorderThickness" Value="1,0,0,1" />
+            <Setter Property="BorderBrush" Value="Black" />
+        </Style>
+    </Page.Resources>
+    <DockPanel x:Name="dockpanel1" Margin="0" DataContext="{Binding Source={StaticResource xmlsource}, XPath=/ProjectDataSet/Project}">
+        <DockPanel.ContextMenu>
+            <ContextMenu>
+                <MenuItem x:Name="menuitem_Refresh" Header="{lex:Loc Key=PC_Doc_mi_Refresh}" Click="menuitem_Refresh_Click" />
+            </ContextMenu>
+        </DockPanel.ContextMenu>
+
+        <Label x:Name="lProjectInfo" Margin="0,0,0,2" VerticalAlignment="Top" DockPanel.Dock="Top" Content="{lex:Loc Key=PC_Doc_lbl_ProjInfo}">
+            <Label.Background>
+                <LinearGradientBrush EndPoint="1,0.5" MappingMode="RelativeToBoundingBox" StartPoint="0,0.5">
+                    <GradientStop Color="White" Offset="0"/>
+                    <GradientStop Color="#FF78EE6D" Offset="1"/>
+                </LinearGradientBrush>
+            </Label.Background>
+        </Label>
+        
+        <Grid x:Name="gProjectInfo" DockPanel.Dock="Top">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <DockPanel Grid.Row="0">
+                <TextBlock HorizontalAlignment="Left" Margin="2" TextWrapping="Wrap" Text="{lex:Loc Key=PC_tb_PID}" VerticalAlignment="Top" Width="71" Grid.Row="1"/>
+                <TextBlock HorizontalAlignment="Left" Margin="2 " TextTrimming="CharacterEllipsis" 
+                           Text="{Binding XPath=@ProjectID, Converter={StaticResource p_nameConverter}}" VerticalAlignment="Top" Grid.Column="1"/>
+            </DockPanel>
+            <DockPanel Grid.Row="1">
+                <TextBlock x:Name="tbUF1" HorizontalAlignment="Left" Margin="2" TextWrapping="Wrap" Text="{lex:Loc Key=PC_tb_UF1}" VerticalAlignment="Top" Width="71" Grid.Row="1"/>
+                <TextBlock Text="{Binding XPath=UserField1}" TextTrimming="CharacterEllipsis" Margin="2" VerticalAlignment="Center" />
+            </DockPanel>
+            <DockPanel Grid.Row="2">
+                <TextBlock x:Name="tbUF2" HorizontalAlignment="Left" Margin="2" TextWrapping="Wrap" Text="{lex:Loc Key=PC_tb_UF2}" VerticalAlignment="Top" Width="71" Grid.Row="1"/>
+                <TextBlock Text="{Binding XPath=UserField2}" TextTrimming="CharacterEllipsis" Margin="2" VerticalAlignment="Center" />
+            </DockPanel>
+        </Grid>
+
+        <Label x:Name="lMilestones" Margin="0,0,0,2" VerticalAlignment="Top" DockPanel.Dock="Top" Content="{lex:Loc Key=PC_lbl_Milestone}">
+            <Label.Background>
+                <LinearGradientBrush EndPoint="1,0.5" MappingMode="RelativeToBoundingBox" StartPoint="0,0.5">
+                    <GradientStop Color="White" Offset="0"/>
+                    <GradientStop Color="#FF78EE6D" Offset="1"/>
+                </LinearGradientBrush>
+            </Label.Background>
+        </Label>
+
+        <DataGrid x:Name="dg_milestones" Height="125" AutoGenerateColumns="False" DockPanel.Dock="Top" GridLinesVisibility="Horizontal"
+                  Margin="2,0" VerticalAlignment="Top" RowHeaderWidth="0" ItemsSource="{Binding XPath=MilestoneItem}" Background="Transparent"
+                  BorderThickness="0" ColumnHeaderStyle="{StaticResource DatagridHeaderStyle}">
+            <DataGrid.Columns>
+                <DataGridTemplateColumn Header="{lex:Loc Key=PC_colHead_Date}" Width="Auto" IsReadOnly="True">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding XPath=Date}" Margin="0,0,10,0"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn Header="{lex:Loc Key=PC_colHead_Event}" Width="*" IsReadOnly="True">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding XPath=Event}"  TextTrimming="CharacterEllipsis"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <Label x:Name="lComments" Margin="0,2" VerticalAlignment="Top" DockPanel.Dock="Top" Content="{lex:Loc Key=PC_lbl_Comments}">
+            <Label.Background>
+                <LinearGradientBrush EndPoint="1,0.5" MappingMode="RelativeToBoundingBox" StartPoint="0,0.5">
+                    <GradientStop Color="White" Offset="0"/>
+                    <GradientStop Color="#FF78EE6D" Offset="1"/>
+                </LinearGradientBrush>
+            </Label.Background>
+        </Label>
+
+        <DataGrid x:Name="dg_comments" AutoGenerateColumns="False" DockPanel.Dock="Top" RowHeaderWidth="0" GridLinesVisibility="Horizontal"
+                  VerticalAlignment="Top" Margin="2,0,2,5" ItemsSource="{Binding XPath=CommentItem}"  Background="Transparent"
+                  BorderThickness="0" ColumnHeaderStyle="{StaticResource DatagridHeaderStyle}">
+            <DataGrid.Columns>
+                <DataGridTemplateColumn Header="{lex:Loc Key=PC_colHead_Date}" Width="Auto" IsReadOnly="True">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding XPath=Date}" Margin="0,0,10,0"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn Header="{lex:Loc Key=PC_colHead_Desc}" Width="*" IsReadOnly="True">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <xctk:RichTextBox Text="{Binding XPath=Description}" IsReadOnly="True"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+    </DockPanel>
+</Page>

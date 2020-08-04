@@ -1,0 +1,565 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Costura.Fody.3.3.2\build\Costura.Fody.props" Condition="Exists('..\packages\Costura.Fody.3.3.2\build\Costura.Fody.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{5FC35710-C90B-462A-A09D-452664F29B2E}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>RVVD</RootNamespace>
+    <AssemblyName>ReVVed</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <StartAction>Program</StartAction>
+    <StartProgram>C:\Program Files\Autodesk\Revit Meridian\Revit.exe</StartProgram>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <UpgradeBackupLocation />
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <TargetFrameworkProfile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>TRACE;DEBUG</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>
+    </DocumentationFile>
+    <StartAction>Program</StartAction>
+    <StartProgram>C:\Program Files\Autodesk\Revit Meridian\Revit.exe</StartProgram>
+    <Prefer32Bit>false</Prefer32Bit>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>
+    </DocumentationFile>
+    <StartAction>Program</StartAction>
+    <StartProgram>C:\Program Files\Autodesk\Revit Meridian\Revit.exe</StartProgram>
+    <Prefer32Bit>false</Prefer32Bit>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>
+    </StartupObject>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>false</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>TRACE;DEBUG</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>Recommended and pretty.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Localize|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Localize\</OutputPath>
+    <DefineConstants>TRACE;DEBUG</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Localize|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Localize\</OutputPath>
+    <DefineConstants>TRACE;DEBUG</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>Recommended and pretty.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>TRACE;DEBUG</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Localize|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Localize\</OutputPath>
+    <DefineConstants>TRACE;DEBUG</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <ItemGroup>
+    <Reference Include="Accessibility" />
+    <Reference Include="Costura, Version=3.3.2.0, Culture=neutral, PublicKeyToken=9919ef960d84173d, processorArchitecture=MSIL">
+      <HintPath>..\packages\Costura.Fody.3.3.2\lib\net40\Costura.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net">
+      <HintPath>..\..\..\Revit APIs\2021\log4net.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="pkhCommon, Version=1.2.0.0, Culture=neutral, PublicKeyToken=3a6fb98a2e3121c8, processorArchitecture=AMD64">
+      <HintPath>..\..\..\pkhCommon\pkhCommon\bin\x64\Release\Locked\v.1.2.0.0\pkhCommon.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationCore">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="PresentationFramework" />
+    <Reference Include="PresentationUI, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="ReachFramework" />
+    <Reference Include="RevitAPI">
+      <HintPath>..\..\..\Revit APIs\2021\RevitAPI.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="RevitAPIUI">
+      <HintPath>..\..\..\Revit APIs\2021\RevitAPIUI.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.AddIn">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Printing" />
+    <Reference Include="System.Windows" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xaml" />
+    <Reference Include="System.XML" />
+    <Reference Include="UIAutomationProvider" />
+    <Reference Include="UIAutomationTypes" />
+    <Reference Include="WindowsBase">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WPFLocalizeExtension, Version=3.0.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\WPFLocalizationExtension\WPFLocalizeExtension\bin\x64\Release\net45\WPFLocalizeExtension.dll</HintPath>
+    </Reference>
+    <Reference Include="XAMLMarkupExtensions">
+      <HintPath>..\..\..\WPFLocalizationExtension\WPFLocalizeExtension\bin\x64\Release\net45\XAMLMarkupExtensions.dll</HintPath>
+    </Reference>
+    <Reference Include="Xceed.Wpf.Toolkit">
+      <HintPath>..\..\..\Extended WPF Toolkit Binaries\Xceed.Wpf.Toolkit.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Case Chooser.xaml.cs">
+      <DependentUpon>Case Chooser.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Chelp.cs" />
+    <Compile Include="Component Commander2\CoCo Main Window.xaml.cs">
+      <DependentUpon>CoCo Main Window.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Component Commander2\DataSetCreator.cs" />
+    <Compile Include="Component Commander2\ExtCommand.cs" />
+    <Compile Include="Component Commander2\FamilyDataProvider.cs" />
+    <Compile Include="Component Commander2\FavoriteDataSet.cs">
+      <DependentUpon>FavoriteDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Component Commander2\FavoriteDataSet.Designer.cs">
+      <DependentUpon>FavoriteDataSet.xsd</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="FavoriteDataSet.cs">
+      <DependentUpon>FavoriteDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="FavoriteDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FavoriteDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="LocalizationProvider.cs" />
+    <None Include="Measurement Protocol.cs" />
+    <Compile Include="Merge Text\Double Arrow Adorner.cs" />
+    <Compile Include="Merge Text\ExtCommand.cs" />
+    <Compile Include="Merge Text\FlowDocument2String Converter.cs" />
+    <Compile Include="Merge Text\FlowDoc2FormattedText Converter.cs" />
+    <Compile Include="Merge Text\Merge Text Functions.cs" />
+    <Compile Include="Merge Text\Merge Text Window.xaml.cs">
+      <DependentUpon>Merge Text Window.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Merge Text\Text Elements Classes.cs" />
+    <Compile Include="Merge Text\Textnote2FlowDoc Converter.cs" />
+    <Compile Include="Options Window.xaml.cs">
+      <DependentUpon>Options Window.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Polyline\ExtCommand.cs" />
+    <Compile Include="Polyline\Polyline Window.xaml.cs">
+      <DependentUpon>Polyline Window.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Project Commander\Docking Pane.xaml.cs">
+      <DependentUpon>Docking Pane.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Project Commander\Double Arrow Adorner Class.cs" />
+    <Compile Include="Project Commander\External Command.cs" />
+    <Compile Include="Project Commander\Milestone Window.xaml.cs">
+      <DependentUpon>Milestone Window.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Project Commander\MyFormatter.cs" />
+    <Compile Include="Project Commander\Project Command Window.xaml.cs">
+      <DependentUpon>Project Command Window.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Project Commander\Project Manager Window.xaml.cs">
+      <DependentUpon>Project Manager Window.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Project Commander\projectcommander.cs">
+      <DependentUpon>projectcommander.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Constants.cs" />
+    <Compile Include="Design\DataTreeView.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Design\DropDownTypeEditor.cs" />
+    <Compile Include="Design\FieldTypeEditor.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="ExternalApplication.cs" />
+    <Compile Include="Polyline\Line Manager Class.cs" />
+    <Compile Include="Polyline\Line Segment Class.cs" />
+    <Compile Include="ExtCommands.cs" />
+    <Compile Include="Project Commander\BindableListView.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Project Commander\projectcommander.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>projectcommander.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Project Commander\RichTextBoxExtended.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Project Commander\RichTextBoxExtendedRtfEditor.cs" />
+    <Compile Include="Project Commander\RichTextBoxExtendedRtfEditorForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Polyline\UnitFunctions.cs" />
+    <Compile Include="Resources\Language.Designer.cs" />
+    <Compile Include="Resources\Language.fr1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Language.fr.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Revision Window.xaml.cs">
+      <DependentUpon>Revision Window.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Structured Storage\BasicFileInfo.cs" />
+    <Compile Include="Structured Storage\DocumentType.cs" />
+    <Compile Include="Structured Storage\PlatformType.cs" />
+    <Compile Include="Structured Storage\PreviewImage.cs" />
+    <Compile Include="Structured Storage\ProductType.cs" />
+    <Compile Include="Structured Storage\Storage.cs" />
+    <Compile Include="Structured Storage\StorageBase.cs" />
+    <Compile Include="Structured Storage\StorageStreamBase.cs" />
+    <Compile Include="Structured Storage\StringUtility.cs" />
+    <Compile Include="Structured Storage\WorkSharingMode.cs" />
+    <Compile Include="ViewSheetInformation Class.cs" />
+    <Compile Include="Weblink\External Command.cs" />
+    <Compile Include="Weblink\WebAddress.cs" />
+    <Compile Include="Weblink\WebAddressChooser.xaml.cs">
+      <DependentUpon>WebAddressChooser.xaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Design\DataTreeView.resx">
+      <DependentUpon>DataTreeView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Project Commander\RichTextBoxExtended.resx">
+      <DependentUpon>RichTextBoxExtended.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Project Commander\RichTextBoxExtendedRtfEditorForm.resx">
+      <DependentUpon>RichTextBoxExtendedRtfEditorForm.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.2.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 2.0 %28x86%29</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.0 %28x86%29</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="Component Commander2\FavoriteDataSet.xsc">
+      <DependentUpon>FavoriteDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="Component Commander2\FavoriteDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>FavoriteDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Component Commander2\FavoriteDataSet.xss">
+      <DependentUpon>FavoriteDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="FavoriteDataSet.xsc">
+      <DependentUpon>FavoriteDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="FavoriteDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>FavoriteDataSet.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="FavoriteDataSet.xss">
+      <DependentUpon>FavoriteDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+    <None Include="revved.log4net.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Project Commander\projectcommander.xsc">
+      <DependentUpon>projectcommander.xsd</DependentUpon>
+    </None>
+    <None Include="Project Commander\projectcommander.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>projectcommander.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Project Commander\projectcommander.xss">
+      <DependentUpon>projectcommander.xsd</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\CCerrorimage.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\CCinitalimage.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="error.html">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\Language.fr.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Language.fr1.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Language.resx" />
+    <EmbeddedResource Include="Resources\RibbonImages\changecase.png" />
+    <EmbeddedResource Include="Resources\RibbonImages\changecase16x16.png" />
+    <EmbeddedResource Include="Resources\RibbonImages\componentcommander.png" />
+    <EmbeddedResource Include="Resources\RibbonImages\componentcommander16x16.png" />
+    <EmbeddedResource Include="Resources\RibbonImages\help.png" />
+    <EmbeddedResource Include="Resources\RibbonImages\help16x16.png" />
+    <EmbeddedResource Include="Resources\RibbonImages\mergetext.png" />
+    <EmbeddedResource Include="Resources\RibbonImages\mergetext16x16.png" />
+    <EmbeddedResource Include="Resources\RibbonImages\openfolder.png" />
+    <EmbeddedResource Include="Resources\RibbonImages\openfolder16x16.png" />
+    <EmbeddedResource Include="Resources\RibbonImages\polyline.png" />
+    <EmbeddedResource Include="Resources\RibbonImages\polyline16x16.png" />
+    <EmbeddedResource Include="Resources\RibbonImages\projectcommander.png" />
+    <EmbeddedResource Include="Resources\RibbonImages\projectcommander16x16.png" />
+    <EmbeddedResource Include="Resources\RibbonImages\uppercase.png" />
+    <EmbeddedResource Include="Resources\RibbonImages\uppercase16x16.png" />
+    <EmbeddedResource Include="Resources\RibbonImages\weblink.png" />
+    <EmbeddedResource Include="Resources\RibbonImages\weblink16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\RibbonImages\about.png" />
+    <EmbeddedResource Include="Resources\RibbonImages\about16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pkh logo vertical.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\RibbonImages\setting.png" />
+    <EmbeddedResource Include="Resources\RibbonImages\setting16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\RibbonImages\projectmanager.png" />
+    <EmbeddedResource Include="Resources\RibbonImages\projectmanager16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="Case Chooser.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Component Commander2\CoCo Main Window.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Merge Text\Merge Text Window.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Options Window.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Polyline\Polyline Window.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Project Commander\Docking Pane.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Project Commander\Milestone Window.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Project Commander\Project Command Window.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Project Commander\Project Manager Window.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Revision Window.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Weblink\WebAddressChooser.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\RibbonImages\gridflip.png" />
+    <EmbeddedResource Include="Resources\RibbonImages\gridflip16x16.png" />
+    <EmbeddedResource Include="Resources\RibbonImages\revisionist.png" />
+    <EmbeddedResource Include="Resources\RibbonImages\revisionist16x16.png" />
+    <Resource Include="Resources\arrow-up.png" />
+    <None Include="..\..\..\Readme.txt">
+      <Link>Readme.txt</Link>
+    </None>
+    <Resource Include="Resources\empty_heart.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\red_heart.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <None Include="FodyWeavers.xml" />
+    <None Include="Revved - debug.addin">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Revved - secure.addin" />
+  </ItemGroup>
+  <PropertyGroup>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
+  <PropertyGroup>
+    <PreBuildEvent>
+    </PreBuildEvent>
+  </PropertyGroup>
+  <Import Project="..\packages\Fody.3.3.5\build\Fody.targets" Condition="Exists('..\packages\Fody.3.3.5\build\Fody.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Fody.3.3.5\build\Fody.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Fody.3.3.5\build\Fody.targets'))" />
+    <Error Condition="!Exists('..\packages\Costura.Fody.3.3.2\build\Costura.Fody.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Costura.Fody.3.3.2\build\Costura.Fody.props'))" />
+  </Target>
+</Project>

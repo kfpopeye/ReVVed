@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RevitAddIns>
+	<AddIn Type="Application">
+	<Name>ReVVed</Name>
+  <Assembly>C:\Users\User\Documents\pkh Lineworks\Projects\ReVVed\ReVVed2020\ReVVed\bin\x64\Release\Locked\reVVed.dll</Assembly>
+	<AddInId>6e5af375-300e-4716-9568-46d1944149df</AddInId>
+	<FullClassName>RVVD.ReVVed</FullClassName>
+	<VendorId>RVVD</VendorId>
+	<VendorDescription>pkh Lineworks, www.pkhlineworks.ca</VendorDescription>
+	</AddIn>
+</RevitAddIns>
